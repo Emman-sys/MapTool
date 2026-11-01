@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "MapTool Area Screenshot",
+  "version": "1.0.0",
+  "description": "Capture a configured area of the current webpage by pressing P.",
+  "permissions": ["downloads", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "options.html",
+    "default_title": "Configure screenshot area"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "options_page": "options.html"
+}
